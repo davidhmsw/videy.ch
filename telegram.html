@@ -33,14 +33,19 @@
             }
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
+        // Función para crear y mostrar el botón de pantalla completa
+        function mostrarBoton() {
             const button = document.createElement('button');
+            button.textContent = 'Ver en pantalla completa';
             button.addEventListener('click', function() {
                 ponerEnPantallaCompleta();
                 button.remove();
             });
             document.body.appendChild(button);
-        });
+        }
+
+        // Llama a la función para mostrar el botón después de que la página esté completamente cargada
+        document.addEventListener('DOMContentLoaded', mostrarBoton);
     </script>
 </body>
 </html>
