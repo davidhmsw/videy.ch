@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video en pantalla completa</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        #fullScreenButton {
+            display: none; /* Oculta el botón de pantalla completa */
+        }
+    </style>
+</head>
+<body>
+    <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="100%" src="https://cdn.videy.co/jTlJ6tFw.mp4" width="100%" id="miVideo"></iframe>
+
+    <script>
+        function ponerEnPantallaCompleta() {
+            const video = document.getElementById('miVideo');
+            if (video.requestFullscreen) {
+                video.requestFullscreen();
+            } else if (video.mozRequestFullScreen) {
+                video.mozRequestFullScreen();
+            } else if (video.webkitRequestFullscreen) {
+                video.webkitRequestFullscreen();
+            } else if (video.msRequestFullscreen) {
+                video.msRequestFullscreen();
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const button = document.createElement('button');
+            button.addEventListener('click', function() {
+                ponerEnPantallaCompleta();
+                button.remove();
+            });
+            document.body.appendChild(button);
+        });
+    </script>
+</body>
+</html>
